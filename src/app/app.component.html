@@ -5,7 +5,9 @@
   </h1>
 </div>
 <h2>Here are some links to help you start: </h2>
-<ul>
-  <li *ngFor="let todo of todos">{{todo}}</li>
+<ul class="todo-list">
+  <li *ngFor="let todo of todos" (click)="onClick(todo)">
+    <div class="todo-item">{{todo.message}}</div>
+  </li>
 </ul>
 

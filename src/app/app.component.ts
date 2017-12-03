@@ -13,4 +13,8 @@ export class AppComponent {
     { id: 2, message: 'Buy me one ', 'authour': 'admin', price: 3 },
     { id: 3, message: 'Gofor the work one ', 'authour': 'test', price: 10 },
   ];
+
+ onClick(todoItem: todos ) {
+   console.log(todoItem);
+ }
 }
