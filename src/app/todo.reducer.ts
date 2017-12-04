@@ -1,6 +1,7 @@
 import { todos } from './todos.modal';
 import * as TodoAction from './todo.actions';
 import _ from "lodash";
+import { todosListData } from './todolist.data';
 
 export  interface State {
   posts: todos[];
@@ -9,7 +10,7 @@ export  interface State {
 }
 
 const initialState: State = {
- posts: [] ,
+ posts: todosListData,
  selectedId: [],
  checkedId:[]
 };
@@ -49,6 +50,15 @@ export function reducer(state = initialState, action: TodoAction.All): State {
           }
         })
       };
+    }
+
+    case TodoAction.MARKALL:{
+      return {
+        ...state,
+        checkedId: _.filter(state.posts, function(item){
+          return item.id;
+        });
+      }
     }
 
     default: {

@@ -4,7 +4,6 @@
    TODO REDUX  {{ title }}!
   </h1>
 </div>
-<h2>Here are some links to help you start: </h2>
 <ul class="todo-list">
   <li *ngFor="let todo of todos">
     <div class="todo-item">
@@ -17,3 +16,4 @@
       <p style='background:#3ea93f;'>selected TODOS</p>
     </div>
 </ul>
+<button (click)="onClickButton()">Effect markAll/unmark</button>

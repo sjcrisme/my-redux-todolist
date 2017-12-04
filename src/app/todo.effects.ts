@@ -17,13 +17,15 @@ export class TodoEffects {
       return new TodoActions.SelectedSuccessed();
     });
 
+  @Effect()
   checkTodo$: Observable<Action> = this.actions$  
     .ofType(TodoActions.CHECKED)
     .map((action: TodoActions.Checked) => {
       console.log('Effects cheked',action.payload);
       return new TodoActions.SelectedSuccessed();
     });
-
+    
+  @Effect()
   uncheckTodo$: Observable<Action> = this.actions$
     .ofType(TodoActions.UNCHECKED)
     .map((action: TodoActions.UnChecked) => {

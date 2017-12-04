@@ -18,7 +18,7 @@ import { reducers } from './reducers';
     EffectsModule.forRoot([TodoEffects]),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
-      maxAge: 25 //  Retains last 25 states
+      maxAge: 35 //  Retains last 35 states
     })
   ],
   providers: [],
