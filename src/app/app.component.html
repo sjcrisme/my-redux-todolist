@@ -6,8 +6,10 @@
 </div>
 <h2>Here are some links to help you start: </h2>
 <ul class="todo-list">
-  <li *ngFor="let todo of todos" (click)="onClick(todo)">
-    <div class="todo-item"><span><input id="todo.id" type="checkbox"></span>{{todo.message}}</div>
+  <li *ngFor="let todo of todos">
+    <div class="todo-item">
+      <span><input id="todo.id" type="checkbox" name="isSelected" (change)="onCheck($event,todo.id)"></span>
+      <p (click)="onClick(todo)">{{todo.message}}</p>
+    </div>
   </li>
 </ul>
-

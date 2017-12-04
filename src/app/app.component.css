@@ -1,7 +1,18 @@
 .todo-list{
   width: 500px;
+  list-style: none;
 }
 .todo-item{
+  display: flex;
   padding: 10px;
-  border:1px solid greenyellow;
+
+  justify-content:flex-start;
+  align-items:center;
+}
+p{
+  padding-left: 10px;
+  width: 100%;
+  background: #2196f3;
+  margin: 0;
+  height: 20px;
 }

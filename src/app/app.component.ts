@@ -27,4 +27,8 @@ export class AppComponent {
    //console.log(todoItem);
    this.store.dispatch(new TodoActions.Selected(todoItem));
  }
+ onCheck(event: Event,item: any){
+   console.log(event.target.checked,item);
+   
+ }
 }
