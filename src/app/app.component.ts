@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+
 import { todos } from './todos.modal';
+import * as TodoActions from './todo.actions';
+import * as fromRoot from './reducers';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +19,12 @@ export class AppComponent {
     { id: 3, message: 'Gofor the work one ', 'authour': 'test', price: 10 },
   ];
 
- onClick(todoItem: todos ) {
-   console.log(todoItem);
+  constructor(
+    private store: Store<fromRoot.State>
+  ) { }
+
+ onClick(todoItem: number ) {
+   //console.log(todoItem);
+   this.store.dispatch(new TodoActions.Selected(todoItem));
  }
 }
