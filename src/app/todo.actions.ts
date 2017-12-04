@@ -6,12 +6,12 @@ export const SELECTED = '[Todo] SELECTED';
 
 export class Load implements Action {
   readonly type = LOAD;
-  constructor() {}
+  constructor(public payload: todos[]) {}
 }
 
 export class Selected implements Action {
   readonly type = SELECTED;
-  constructor(public payload: todos) {}
+  constructor(public payload: number) {}
 }
 export type All
   = Load | Selected;
