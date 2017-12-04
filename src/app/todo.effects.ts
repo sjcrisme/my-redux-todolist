@@ -24,7 +24,7 @@ export class TodoEffects {
       console.log('Effects cheked',action.payload);
       return new TodoActions.SelectedSuccessed();
     });
-    
+
   @Effect()
   uncheckTodo$: Observable<Action> = this.actions$
     .ofType(TodoActions.UNCHECKED)
@@ -35,6 +35,13 @@ export class TodoEffects {
     // .switchMap(terms => this.booksService.searchBooks(terms))
      //.map(results => new TodoActions.SearchSuccess(results));
     
+  @Effect()
+  MarkAll$: Observable<Action> = this.actions$  
+    .ofType(TodoActions.MARKALL)
+    .map((action: TodoActions.MarkAll) => {
+      console.log('Effects cheked',action.payload);
+      return new TodoActions.SelectedSuccessed();
+    });
   constructor(
     private actions$: Actions,
   ) {}

@@ -6,6 +6,7 @@ import { todos } from './todos.modal';
 import * as TodoActions from './todo.actions';
 import * as fromRoot from './reducers';
 import { todosListData } from './todolist.data';
+import _ from "lodash";
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,14 @@ import { todosListData } from './todolist.data';
 export class AppComponent {
   title = 'app';
   count:Observable<number>;
+  mcheckbox:Observable<number[]>;
 
  public todos: [todos] = todosListData;
 
   constructor(
     private store: Store<fromRoot.State>
   ) {
-
+    this.mcheckbox = store.select((state)=>state.search.checkedId);
     this.count = store.select((state)=>state.search.checkedId.length);
   }
 
@@ -41,8 +43,8 @@ export class AppComponent {
    }
 
  onClickButton() {
-
-  console.log("Hi");
+  const onlyID:[number] = _.map(this.todos,(item)=>item.id);
+  this.store.dispatch(new TodoActions.MarkAll(onlyID));
  }
 
 }
