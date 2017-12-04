@@ -27,8 +27,15 @@ export class AppComponent {
    //console.log(todoItem);
    this.store.dispatch(new TodoActions.Selected(todoItem));
  }
- onCheck(event: Event,item: any){
-   console.log(event.target.checked,item);
+ onCheck(event: Event,item: number){
+   if(!event.target.checked){
+    this.store.dispatch(new TodoActions.UnChecked(item)); 
+   }
+   else{
+    this.store.dispatch(new TodoActions.Checked(item));
+   }
+    
+   console.log(event.target.checked, item);
    
  }
 }
