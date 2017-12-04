@@ -12,4 +12,8 @@
       <p (click)="onClick(todo)">{{todo.message}}</p>
     </div>
   </li>
+  <div class="todo-item">
+      <span style="width: 20px;text-align: center;">{{count | async}}</span>
+      <p style='background:#3ea93f;'>selected TODOS</p>
+    </div>
 </ul>

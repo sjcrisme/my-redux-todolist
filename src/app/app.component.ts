@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, state } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
@@ -13,15 +13,22 @@ import * as fromRoot from './reducers';
 })
 export class AppComponent {
   title = 'app';
+  count:Observable<number>;
+
  public todos: [todos] = [
-    { id: 1, message: 'Hello one ', 'authour': 'admin', price: 1 },
-    { id: 2, message: 'Buy me one ', 'authour': 'admin', price: 3 },
-    { id: 3, message: 'Gofor the work one ', 'authour': 'test', price: 10 },
+    { id: 1, message: 'Hello one ', authour: 'admin', price: 1 },
+    { id: 2, message: 'Buy me one ', authour: 'admin', price: 3 },
+    { id: 3, message: 'Gofor the work one ', authour: 'test', price: 10 },
+    { id: 5, message: 'feed the fish ', authour: 'test', price: 5 },
+    { id: 6, message: 'test this app ', authour: 'user', price: 2 },
   ];
 
   constructor(
     private store: Store<fromRoot.State>
-  ) { }
+  ) {
+
+    this.count = store.select((state)=>state.search.checkedId.length);
+  }
 
  onClick(todoItem: number ) {
    //console.log(todoItem);

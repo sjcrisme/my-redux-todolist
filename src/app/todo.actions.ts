@@ -3,6 +3,7 @@ import {todos} from './todos.modal';
 
 export const LOAD       = '[Todo] LOAD';
 export const SELECTED   = '[Todo] SELECTED';
+export const SELECTED_SUCCESSED = '[Todo] SELECTED_SUCCESSED';
 export const CHECKED    = '[Todo] CHECKED';
 export const UNCHECKED  = '[Todo] UNCHECKED';
 
@@ -14,6 +15,10 @@ export class Load implements Action {
 export class Selected implements Action {
   readonly type = SELECTED;
   constructor(public payload: number) {}
+}
+export class SelectedSuccessed implements Action {
+  readonly type = SELECTED_SUCCESSED;
+  constructor() {}
 }
 
 export class Checked implements Action {
@@ -27,4 +32,4 @@ export class UnChecked implements Action {
 }
 
 export type All
-  = Load | Selected | Checked | UnChecked;
+  = Load | Selected | Checked | UnChecked | SelectedSuccessed ;
