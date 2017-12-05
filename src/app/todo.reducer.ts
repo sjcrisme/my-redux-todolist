@@ -1,7 +1,7 @@
 import { todos } from './todos.modal';
 import * as TodoAction from './todo.actions';
 import _ from "lodash";
-//import { todosListData } from './todolist.data';
+// import { todosListData } from './todolist.data';
 
 export  interface State {
   posts: todos[];
@@ -10,17 +10,17 @@ export  interface State {
 }
 
 const initialState: State = {
- //posts: todosListData,
- posts:[],
+ // posts: todosListData,
+ posts: [],
  selectedId: [],
- checkedId:[]
+ checkedId: []
 };
 
 
 
 export function reducer(state = initialState, action: TodoAction.All): State {
   switch ( action.type) {
-    case TodoAction.LOAD: {  
+    case TodoAction.LOAD: {
       return {
         ...state,
         posts: action.payload
@@ -42,11 +42,11 @@ export function reducer(state = initialState, action: TodoAction.All): State {
     }
 
     case TodoAction.UNCHECKED: {
-      //state.checkedId
+      // state.checkedId
       return {
         ...state,
-        checkedId: _.filter(state.checkedId,function(item){
-          if(item != action.payload){
+        checkedId: _.filter(state.checkedId, function(item){
+          if (item !== action.payload) {
               return item;
           }
         })

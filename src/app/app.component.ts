@@ -6,7 +6,7 @@ import { todos } from './todos.modal';
 import * as TodoActions from './todo.actions';
 import * as fromRoot from './reducers';
 import { todosListData } from './todolist.data';
-import _ from "lodash";
+import _ from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -15,16 +15,16 @@ import _ from "lodash";
 })
 export class AppComponent {
   title = 'app';
-  count:Observable<number>;
-  mcheckbox:Observable<number[]>;
+  count: Observable<number>;
+  //mcheckbox: Observable<number[]>;
 
  public todos: [todos] = todosListData;
 
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    this.mcheckbox = store.select((state)=>state.search.checkedId);
-    this.count = store.select((state)=>state.search.checkedId.length);
+   // this.mcheckbox = store.select((state) => state.search.checkedId);
+    this.count = store.select((state) => state.search.checkedId.length);
   }
 
  onClick(todoItem: number ) {
@@ -32,18 +32,18 @@ export class AppComponent {
    this.store.dispatch(new TodoActions.Selected(todoItem));
  }
 
- onCheck(event: Event,item: number){
-   if(!event.target.checked){
-    this.store.dispatch(new TodoActions.UnChecked(item)); 
+ onCheck(event: Event, item: number) {
+   if (!(<HTMLInputElement>event.target).checked) {
+    this.store.dispatch(new TodoActions.UnChecked(item));
    }
-   else{
+   else {
     this.store.dispatch(new TodoActions.Checked(item));
    }
-   console.log(event.target.checked, item);
+   console.log((<HTMLInputElement>event.target).checked, item);
    }
 
  onClickButton() {
-  const onlyID:[number] = _.map(this.todos,(item)=>item.id);
+  const onlyID: [number] = _.map(this.todos, (item) => item.id);
   this.store.dispatch(new TodoActions.MarkAll(onlyID));
  }
 

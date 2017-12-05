@@ -7,11 +7,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TodoEffects } from './todo.effects';
 import { AppComponent } from './app.component';
 import { reducers } from './reducers';
+import { DetailTodoComponent } from './detail-todo/detail-todo.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DetailTodoComponent
   ],
   imports: [
     BrowserModule,
