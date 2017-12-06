@@ -15,10 +15,13 @@ import _ from 'lodash';
 })
 export class DetailTodoComponent implements OnInit {
   mcheckbox: Observable<number[]>;
+  testChecked: Observable<todos[]>;
+
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    this.mcheckbox = store.select((state) => state.search.checkedId);
+    this.mcheckbox = store.select(fromRoot.checkedIds);
+    this.testChecked = store.select(fromRoot.getTodosSelected);
   }
 
   ngOnInit() {

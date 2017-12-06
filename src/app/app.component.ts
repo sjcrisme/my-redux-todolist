@@ -24,7 +24,7 @@ export class AppComponent {
     private store: Store<fromRoot.State>
   ) {
    // this.mcheckbox = store.select((state) => state.search.checkedId);
-    this.count = store.select((state) => state.search.checkedId.length);
+    this.count = store.select(fromRoot.selectResultsCount);
   }
 
  onClick(todoItem: number ) {

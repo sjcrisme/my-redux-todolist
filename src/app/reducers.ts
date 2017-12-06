@@ -8,14 +8,22 @@ export const reducers = {
   search: fromtodos.reducer
 };
 
-// export function selectResults(state: State) {
-//   return state.search.results;
-// }
+export function selectResultsCount(state: State) {
+   return state.search.checkedId.length;
+}
 
-// export function selectCount(state: State) {
-//   return state.search.results.length;
-// }
+export function checkedIds(state: State) {
+  return state.search.checkedId;
+}
 
-// export function selectTerms(state: State) {
-//   return state.search.searchTerms;
-// }
+export function getTodosSelected(state: State) {
+  return   state.search.checkedId.map(item => {
+    console.log(item);
+    return {
+      id: 1,
+      message: 'string',
+      authour: 'string',
+      price: 2
+    }
+  });
+}
