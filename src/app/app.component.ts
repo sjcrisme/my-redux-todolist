@@ -2,7 +2,7 @@ import { Component, state } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import { todos } from './todos.modal';
+import { todos } from './modal/todos.modal';
 import * as TodoActions from './todo.actions';
 import * as fromRoot from './reducers';
 import { todosListData } from './todolist.data';

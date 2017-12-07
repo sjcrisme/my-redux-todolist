@@ -1,18 +1,18 @@
-import { todos } from './todos.modal';
+import { todos } from './modal/todos.modal';
 import * as TodoAction from './todo.actions';
 import _ from "lodash";
 // import { todosListData } from './todolist.data';
 
 export  interface State {
   posts: todos[];
-  selectedId: number[];
+  selectedId: number;
   checkedId: number[];
 }
 
 const initialState: State = {
  // posts: todosListData,
  posts: [],
- selectedId: [],
+ selectedId:null,
  checkedId: []
 };
 
@@ -30,7 +30,7 @@ export function reducer(state = initialState, action: TodoAction.All): State {
     case TodoAction.SELECTED: {
       return {
         ...state,
-        selectedId: [action.payload]
+        selectedId: action.payload
       };
     }
 

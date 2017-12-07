@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import {todos} from './todos.modal';
+import {todos} from './modal/todos.modal';
 
 export const LOAD       = '[Todo] LOAD';
 export const SELECTED   = '[Todo] SELECTED';

@@ -22,7 +22,7 @@ export function getTodosSelected(state: State) {
     return {
       id: 1,
       message: 'string',
-      authour: 'string',
+      authour: 0,
       price: 2
     }
   });
