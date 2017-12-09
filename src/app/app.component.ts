@@ -1,4 +1,4 @@
-import { Component, state } from '@angular/core';
+import { Component, state, trigger } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
@@ -16,6 +16,7 @@ import _ from 'lodash';
 export class AppComponent {
   title = 'app';
   count: Observable<number>;
+  trigger:boolean = false;
   //mcheckbox: Observable<number[]>;
 
  public todos: [todos] = todosListData;
@@ -44,7 +45,23 @@ export class AppComponent {
 
  onClickButton() {
   const onlyID: [number] = _.map(this.todos, (item) => item.id);
-  this.store.dispatch(new TodoActions.MarkAll(onlyID));
+  this.trigger = !this.trigger;
+  if(this.trigger == false){
+    this.todos = _.map(this.todos, (item) => { 
+      item.checked = true;
+      return item;}
+    );
+    this.store.dispatch(new TodoActions.MarkAll(onlyID));
+  }
+  else{
+
+  }
+  //myArray.filter(x => x.id === '45').map(x => x.foo)
+ //let ar =_.filter(this.todos, item => item.id === onlyID);
+  // this.todos = _.map(this.todos, (item) => {
+  //   if (item.id == )
+  // })
+
  }
 
 }
