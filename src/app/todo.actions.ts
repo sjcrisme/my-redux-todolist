@@ -7,6 +7,7 @@ export const SELECTED_SUCCESSED = '[Todo] SELECTED_SUCCESSED';
 export const CHECKED    = '[Todo] CHECKED';
 export const UNCHECKED  = '[Todo] UNCHECKED';
 export const MARKALL    = '[Todo] MARKALL'; 
+export const UNMARKALL  = '[Todo] UNMARKALL';
 
 export class Load implements Action {
   readonly type = LOAD;
@@ -37,5 +38,10 @@ export class MarkAll implements Action {
   constructor(public payload: number[]) {}
 }
 
+export class UnMarkAll implements Action {
+  readonly type = UNMARKALL;
+  constructor(public payload: number[]) {}
+}
+
 export type All
-  = Load | Selected | Checked | UnChecked | SelectedSuccessed | MarkAll;
+  = Load | Selected | Checked | UnChecked | SelectedSuccessed | MarkAll | UnMarkAll;

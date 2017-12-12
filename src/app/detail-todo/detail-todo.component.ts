@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
+import { Actions, Effect, OnRunEffects, EffectNotification } from '@ngrx/effects';
 
 import { todos } from './../modal/todos.modal';
 import * as TodoActions from './../todo.actions';
@@ -15,17 +16,13 @@ import _ from 'lodash';
 })
 export class DetailTodoComponent implements OnInit {
   mcheckbox: Observable<number[]>;
-  testChecked: Observable<todos[]>;
-
   constructor(
     private store: Store<fromRoot.State>
   ) {
-    this.mcheckbox = store.select(fromRoot.checkedIds);
-    this.testChecked = store.select(fromRoot.getTodosSelected);
+    this.mcheckbox = store.select((state) => state.search.checkedId);
   }
 
   ngOnInit() {
-    console.log(this.testChecked);
   }
 
 }
