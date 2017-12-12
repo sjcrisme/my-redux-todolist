@@ -16,7 +16,7 @@ export class Load implements Action {
 
 export class Selected implements Action {
   readonly type = SELECTED;
-  constructor(public payload: number) {}
+  constructor(public payload: todos) {}
 }
 export class SelectedSuccessed implements Action {
   readonly type = SELECTED_SUCCESSED;

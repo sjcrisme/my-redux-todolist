@@ -8,12 +8,14 @@ import { TodoEffects } from './todo.effects';
 import { AppComponent } from './app.component';
 import { reducers } from './reducers';
 import { DetailTodoComponent } from './detail-todo/detail-todo.component';
+import { TodoInfoComponent } from './todo-info/todo-info.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetailTodoComponent
+    DetailTodoComponent,
+    TodoInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { DetailTodoComponent } from './detail-todo/detail-todo.component';
     })
   ],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

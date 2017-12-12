@@ -10,7 +10,7 @@
     <ul class="todo-list">
       <li *ngFor="let todo of todos;let idx = index">
         <div class="todo-item">
-          {{idx}}<span><input id="todo.id" type="checkbox" name="isSelected" (change)="onCheck($event,todo.id)"></span>
+          {{idx}}<span><input id="todo.id" type="checkbox" name="isSelected" (change)="onCheck($event,todo)"></span>
           <p (click)="onClick(todo)">{{todo.message}}</p>
         </div>
       </li>
@@ -25,8 +25,8 @@
   </div>
 
   <div class="right">
-    <h2>Right full view of node </h2>
-    <p>text text text text</p>
+      <app-todo-info [todo]="selectedTodo | async"></app-todo-info>
+      <p>{{ selectedTodo.message | async}}</p>
   </div>
 </div>
 
