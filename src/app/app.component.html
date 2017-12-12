@@ -4,20 +4,30 @@
    TODO REDUX  {{ title }}!
   </h1>
 </div>
-<ul class="todo-list">
-  <li *ngFor="let todo of todos;let idx = index">
-    <div class="todo-item">
-      {{idx}}<span><input id="todo.id" type="checkbox" name="isSelected" (change)="onCheck($event,todo.id)"></span>
-      <p (click)="onClick(todo)">{{todo.message}}</p>
-    </div>
-  </li>
-  <div class="todo-item">
-      <span style="width: 20px;text-align: center;">{{count | async}}</span>
-      <p style='background:#3ea93f;'>selected TODOS</p>
+<div class="wrapper">
+  <div class="left">
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos;let idx = index">
+        <div class="todo-item">
+          {{idx}}<span><input id="todo.id" type="checkbox" name="isSelected" (change)="onCheck($event,todo.id)"></span>
+          <p (click)="onClick(todo)">{{todo.message}}</p>
+        </div>
+      </li>
+      <div class="todo-item">
+          <span style="width: 20px;text-align: center;">{{count | async}}</span>
+          <p style='background:#3ea93f;'>selected TODOS</p>
+      </div>
+      <!--<p>:{{mcheckbox | async}}</p>-->
+    </ul>
+    <button (click)="onClickButton()">Effect markAll/unmark</button>
   </div>
-  <!--<p>:{{mcheckbox | async}}</p>-->
-</ul>
-<button (click)="onClickButton()">Effect markAll/unmark</button>
+
+  <div class="right">
+    <h2>Right full view of node </h2>
+    <p>text text text text</p>
+  </div>
+</div>
+
 
 <br>
 <br>

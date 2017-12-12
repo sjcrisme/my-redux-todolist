@@ -16,3 +16,21 @@ p{
   margin: 0;
   height: 20px;
 }
+
+h1{
+  padding-bottom: 25px;
+}
+.left{
+  float: left;
+}
+.right{
+  float: left;
+  padding-left: 10px;
+  margin-top: -41px;
+}
+
+.wrapper{
+  display: block;
+  clear: both;
+  height: 300px;
+}
