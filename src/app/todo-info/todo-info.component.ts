@@ -11,7 +11,12 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-todo-info',
-  templateUrl: './todo-info.component.html',
+  template: `
+  <h2>Right full view of node </h2>
+  <p>text text text text
+    <!-- {{todo.id}}/{{todo.message}}  -->
+  </p>
+  `,
   styleUrls: ['./todo-info.component.css']
 })
 export class TodoInfoComponent implements OnInit {

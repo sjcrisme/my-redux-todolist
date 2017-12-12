@@ -5,14 +5,14 @@ import _ from "lodash";
 
 export  interface State {
   posts: todos[];
-  selectedId: number;
+  selected: todos;
   checkedId: number[];
 }
 
 const initialState: State = {
  // posts: todosListData,
  posts: [],
- selectedId:null,
+ selected:null,
  checkedId: []
 };
 
@@ -30,7 +30,7 @@ export function reducer(state = initialState, action: TodoAction.All): State {
     case TodoAction.SELECTED: {
       return {
         ...state,
-        selectedId: action.payload
+        selected: action.payload
       };
     }
 

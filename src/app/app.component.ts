@@ -28,7 +28,7 @@ export class AppComponent {
     this.count = store.select(fromRoot.selectResultsCount);
   }
 
- onClick(todoItem: number ) {
+ onClick(todoItem: todos) {
    //console.log(todoItem);
    this.store.dispatch(new TodoActions.Selected(todoItem));
  }
